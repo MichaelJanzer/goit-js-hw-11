@@ -5,7 +5,7 @@ export function getPicturesByQuery() {
     console.log(query);
     const Api_Key = '44869216-4addd85d29d39c45ae242764b'
     return fetch(
-        `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`
+        `https://pixabay.com/api/?key=${Api_Key}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`
     ).then(res => {
         console.log(res);
 
