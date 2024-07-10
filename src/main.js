@@ -40,7 +40,7 @@ function handlerSearch(event) {
   getPicturesByQuery(queryValue)
     .then(data => {
       console.log(data);
-      if (!data.hits.length) {
+      if (!data.this.length) {
         iziToast.error({
           position: 'topRight',
           maxWidth: '432px',
@@ -52,7 +52,7 @@ function handlerSearch(event) {
         return;
       }
 
-      showImages(data.hits);
+      showImages(data.this);
       lightbox.refresh();
     })
     .catch(error => {
