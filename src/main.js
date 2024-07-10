@@ -1,13 +1,14 @@
 import { getPicturesByQuery } from './js/pixabay-api';
 import { showImages } from './js/render-functions';
 
+// Описаний у документації
 import iziToast from 'izitoast';
-
+// Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
 
-
+// Описаний у документації
 import SimpleLightbox from 'simplelightbox';
-
+// Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 export const searchForm = document.querySelector('.form');
@@ -40,7 +41,7 @@ function handlerSearch(event) {
   getPicturesByQuery(queryValue)
     .then(data => {
       console.log(data);
-      if (!data.this.length) {
+      if (!data.hits.length) {
         iziToast.error({
           position: 'topRight',
           maxWidth: '432px',
@@ -52,7 +53,7 @@ function handlerSearch(event) {
         return;
       }
 
-      showImages(data.this);
+      showImages(data.hits);
       lightbox.refresh();
     })
     .catch(error => {
@@ -84,4 +85,3 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionPosition: 'bottom',
   captionDelay: 250,
 });
-
